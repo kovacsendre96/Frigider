@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Frigider/static/js/main.4b0295cf.chunk.js",
-    "main.js.map": "/Frigider/static/js/main.4b0295cf.chunk.js.map",
+    "main.js": "/Frigider/static/js/main.a40927cb.chunk.js",
+    "main.js.map": "/Frigider/static/js/main.a40927cb.chunk.js.map",
     "runtime-main.js": "/Frigider/static/js/runtime-main.51babb52.js",
     "runtime-main.js.map": "/Frigider/static/js/runtime-main.51babb52.js.map",
     "static/js/2.78a3127c.chunk.js": "/Frigider/static/js/2.78a3127c.chunk.js",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime-main.51babb52.js",
     "static/js/2.78a3127c.chunk.js",
-    "static/js/main.4b0295cf.chunk.js"
+    "static/js/main.a40927cb.chunk.js"
   ]
 }
