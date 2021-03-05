@@ -47,7 +47,7 @@ function App() {
   return (
     <GlobalStyle>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/Frigider" exact>
       <Form
         productName={productName}
         setProductName={setProductName}
