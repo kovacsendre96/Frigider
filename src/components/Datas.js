@@ -9,7 +9,6 @@ const Datas = ({ listItem, setList, list,filterItem,show,show2,setShow,setShow2 
     
 
 
-    
     const handleClose = () => setShow(false);
     
     const HandleShow2 = () => setShow2(true);
@@ -17,7 +16,7 @@ const Datas = ({ listItem, setList, list,filterItem,show,show2,setShow,setShow2 
     const handleClose2 = () => setShow2(false);
     
     const remove = () => setList(list.filter((f) => f.id !== listItem.id))
-
+    
  
 
 

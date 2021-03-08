@@ -5,7 +5,7 @@ import { ListStyle } from './styles/ListStyle';
 
 
 
-import { Button, Modal } from 'react-bootstrap';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -17,31 +17,26 @@ const List = ({ list, setList, result, input, anotherInput, filteredItem, setFil
 
 
 
-
-
-
-
-
-
-
     return (
 
 
         <ListStyle>
 
 
-
+{/* 
             {filteredItem.map((filterItem) => (
-                      <Datas
+                      <ListItem
                       filterItem={filterItem}
                       show={show}
                       show2={show2}
                       setShow={setShow}
                       setShow2={setShow2}
+                      setList={setList}
+                      
                       
                       
                       />
-            ))}
+            ))} */}
 
 
 
@@ -58,8 +53,12 @@ const List = ({ list, setList, result, input, anotherInput, filteredItem, setFil
                             anotherInput={anotherInput}
                             filteredItem={filteredItem}
                             setFilteredItem={setFilteredItem}
-                            filterItem={filterItem}
                             setShow={setShow}
+                            filterItem={filterItem}
+                            show={show}
+                            show2={show2}
+                            setShow={setShow}
+                            setShow2={setShow2}
                         
                         />
                     </div>

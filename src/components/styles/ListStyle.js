@@ -67,4 +67,5 @@ export const ListItemStyle = styled.div`
  height:40px;
  margin:15px;
  border:1px solid black;
+ cursor: pointer;
 `;
