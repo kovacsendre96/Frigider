@@ -28,6 +28,11 @@ function App() {
 
   const [filteredItem, setFilteredItem] = useState([]);
 
+    
+  const [show, setShow] = useState(false);
+    
+  const [show2,setShow2] = useState(false);
+
 
 
 
@@ -74,6 +79,10 @@ function App() {
           setPut={setPut}
           filteredItem={filteredItem}
           setFilteredItem={setFilteredItem}
+          show={show}
+          show2={show2}
+          setShow={setShow}
+          setShow2={setShow2}
    
 
         />
