@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ListItemStyle } from './styles/ListStyle';
 
 
 
-const Datas = ({ listItem, setList, list }) => {
+const Datas = ({ listItem, setList, list,filteredItem,filterItem }) => {
 
+    
 
 
     const remove = () => {
@@ -14,18 +15,22 @@ const Datas = ({ listItem, setList, list }) => {
     }
 
 
+ 
+
+
     return (
         <>
 
-            <h3>{listItem.product}</h3>
-            <p style={{ color: 'gray' }}> még {listItem.resultNumber} napig tartható a fagyasztóban</p>
-            <p>Berakási dátum:{listItem.date}</p>
-            <p>( {listItem.since} napja )</p>
-            <p>Mennyiség:{listItem.quantity} {listItem.unit}</p>
+            <h3>{filterItem.product}</h3>
+            <p style={{ color: 'gray' }}> még {filterItem.resultNumber} napig tartható a fagyasztóban</p>
+            <p>Berakási dátum:{filterItem.date}</p>
+            <p>( {filterItem.since} napja )</p>
+            <p>Mennyiség:{filterItem.quantity} {filterItem.unit}</p>
 
             <button onClick={remove} >Töröl</button>
+      
 
-       </>
+        </>
     );
 
 };

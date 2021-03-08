@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import {ListDesign} from './styles/FormStyle';
+import { ListDesign } from './styles/FormStyle';
 
 
 
-const Form = ({ productName, setProductName, input, setInput, anotherInput, setAnotherInput, list, setList, setResult, result, quantity, setQuantity, unit, setUnit,put,setPut }) => {
+const Form = ({ productName, setProductName, input, setInput, anotherInput, setAnotherInput, list, setList, setResult, result, quantity, setQuantity, unit, setUnit, put, setPut }) => {
 
 
 
@@ -13,7 +13,7 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
     const anotherInputHandler = (e) => {
 
         setAnotherInput(e.target.value)
-       
+
 
 
     }
@@ -62,13 +62,13 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
 
     const submitHandler = (e) => {
         e.preventDefault();
-        
-        setList([...list, { product: productName, resultNumber: result, id: uuidv4(), date: input, since: since, unit: unit, quantity: quantity }]);
+
+        setList([...list, { product: productName, resultNumber: result, id: uuidv4(), date: input, endDate: anotherInput, since: since, unit: unit, quantity: quantity }]);
         setProductName('');
         setPut(true);
         e.target.reset();
-        setTimeout(function(){ setPut(false); }, 300);
-        
+        setTimeout(function () { setPut(false); }, 300);
+
 
     }
 

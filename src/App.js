@@ -26,18 +26,7 @@ function App() {
 
   const [put, setPut] = useState(false);
 
-
-
-
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDay();
-
-
-
-
-
+  const [filteredItem, setFilteredItem] = useState([]);
 
 
 
@@ -47,7 +36,7 @@ function App() {
   return (
     <GlobalStyle>
       <Switch>
-        <Route path="/Frigider" exact>
+        <Route path="/" exact>
       <Form
         productName={productName}
         setProductName={setProductName}
@@ -83,6 +72,9 @@ function App() {
           setUnit={setUnit}
           put={put}
           setPut={setPut}
+          filteredItem={filteredItem}
+          setFilteredItem={setFilteredItem}
+   
 
         />
       </Route>
