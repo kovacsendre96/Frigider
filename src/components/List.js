@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ListItem from './ListItem';
-import Datas from './Datas';
 import { ListStyle } from './styles/ListStyle';
+import { Alert } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -9,11 +10,22 @@ import { ListStyle } from './styles/ListStyle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const List = ({ list, setList, result, input, anotherInput, filteredItem, setFilteredItem, filterItem,setShow,show, show2, setShow2 }) => {
+const List = ({ list, setList, result, input, anotherInput, filteredItem, setFilteredItem, filterItem, setShow, show, show2, setShow2, quantityChange, setQuantityChange }) => {
 
 
-    
-   
+
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = `${yyyy}-${mm}-${dd}`;
+
+    const oneDay = 24 * 60 * 60 * 1000;
+
+
+
+
 
 
 
@@ -22,47 +34,102 @@ const List = ({ list, setList, result, input, anotherInput, filteredItem, setFil
 
         <ListStyle>
 
-
-{/* 
-            {filteredItem.map((filterItem) => (
-                      <ListItem
-                      filterItem={filterItem}
-                      show={show}
-                      show2={show2}
-                      setShow={setShow}
-                      setShow2={setShow2}
-                      setList={setList}
-                      
-                      
-                      
-                      />
-            ))} */}
-
-
-
             <div className="inside">
-                {list.map((listItem) => (
-                    <div >
-                        <ListItem
-                            list={list}
-                            listItem={listItem}
-                            result={result}
-                            key={listItem.id}
-                            setList={setList}
-                            input={input}
-                            anotherInput={anotherInput}
-                            filteredItem={filteredItem}
-                            setFilteredItem={setFilteredItem}
-                            setShow={setShow}
-                            filterItem={filterItem}
-                            show={show}
-                            show2={show2}
-                            setShow={setShow}
-                            setShow2={setShow2}
-                        
-                        />
+
+                <div className="fresh-food">
+                    <Alert variant="success">Friss ételek</Alert>
+
+                    <div className="fresh-food-items">
+                        {list.map((listItem) => (
+
+
+                            ((new Date(listItem.endDate).getTime() - new Date(today).getTime()) / oneDay) > 3 ?
+                                <ListItem
+                                    list={list}
+                                    listItem={listItem}
+                                    result={result}
+                                    key={listItem.id}
+                                    setList={setList}
+                                    input={input}
+                                    anotherInput={anotherInput}
+                                    filteredItem={filteredItem}
+                                    setFilteredItem={setFilteredItem}
+                                    setShow={setShow}
+                                    filterItem={filterItem}
+                                    show={show}
+                                    show2={show2}
+                                    setShow={setShow}
+                                    setShow2={setShow2}
+                                    quantityChange={quantityChange}
+                                    setQuantityChange={setQuantityChange}
+
+                                />
+                                : ""
+                            ))}
                     </div>
-                ))}
+                </div>
+
+
+                <div className="middle-fresh-food">
+                    <Alert variant="warning">3 napon belül lejáró ételek</Alert>
+
+                    <div className="fresh-food-items">
+                        {list.map((listItem) => (
+
+                            (((new Date(listItem.endDate).getTime() - new Date(today).getTime()) / oneDay) < 3 && ((new Date(listItem.endDate).getTime() - new Date(today).getTime()) / oneDay) > 0)?
+                                <ListItem
+                                    list={list}
+                                    listItem={listItem}
+                                    result={result}
+                                    key={listItem.id}
+                                    setList={setList}
+                                    input={input}
+                                    anotherInput={anotherInput}
+                                    filteredItem={filteredItem}
+                                    setFilteredItem={setFilteredItem}
+                                    setShow={setShow}
+                                    filterItem={filterItem}
+                                    show={show}
+                                    show2={show2}
+                                    setShow={setShow}
+                                    setShow2={setShow2}
+                                    quantityChange={quantityChange}
+                                    setQuantityChange={setQuantityChange}
+
+                                />
+                                : ""
+                            ))}
+                    </div>
+                </div>
+                <div className="expired-food">
+                    <Alert variant="danger">Lejárt szavatosságú ételek</Alert>
+                    {
+                        list.map((listItem) => (
+                            listItem.endDate <= today ?
+                                <div >
+                                    <ListItem
+                                        list={list}
+                                        listItem={listItem}
+                                        result={result}
+                                        key={listItem.id}
+                                        setList={setList}
+                                        input={input}
+                                        anotherInput={anotherInput}
+                                        filteredItem={filteredItem}
+                                        setFilteredItem={setFilteredItem}
+                                        setShow={setShow}
+                                        filterItem={filterItem}
+                                        show={show}
+                                        show2={show2}
+                                        setShow={setShow}
+                                        setShow2={setShow2}
+                                        quantityChange={quantityChange}
+                                        setQuantityChange={setQuantityChange}
+
+                                    />
+                                </div> : ""
+                        ))}
+                </div>
             </div>
         </ListStyle>
 
@@ -71,3 +138,5 @@ const List = ({ list, setList, result, input, anotherInput, filteredItem, setFil
 };
 
 export default List;
+
+

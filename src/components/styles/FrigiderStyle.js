@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import frigider from '../styles/frigider.jpg';
 import frigider2 from '../styles/frigider2.jpg';
 import frigiderOpen from '../styles/frigider-open.jpg';
 

@@ -69,6 +69,8 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
         e.target.reset();
         setTimeout(function () { setPut(false); }, 300);
 
+    
+
 
     }
 
@@ -84,12 +86,12 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
             <div className="top"></div>
             <form onSubmit={submitHandler} id="datas">
                 <div className="input-wrapper">
-                    Étel neve:
+                    Megnevezés
                     <input value={productName} onChange={FoodNameHandler}></input>
                 </div>
 
                 <div className="input-wrapper">
-                    <label for='quantity'>Mennyiség</label>
+                    <label placeholder="Mennyiség" for='quantity'>Mennyiség</label>
                     <input id="quantity" onChange={QuantityHandler} type="number"></input>
                     <select onChange={UnitHandler} name="quantity" id="quantity" form="datas">
 
@@ -103,19 +105,20 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
                 </div>
 
                 <div className="input-wrapper">
-                    Mikor lett berakva az étel?
+                    Berakási dátum
                     <input onChange={InputHandler} type="date"></input>
                 </div>
 
                 <div className="input-wrapper">
-                    Mikor kell kivenni az ételt?
+                    Szavatossági idő
                     <input onChange={anotherInputHandler} type="date"></input>
                 </div>
 
 
-                <div className="input-wrapper">
-                    <button >Fagyóba rak</button>
+                <div className="button-wrapper">
+                    <button >OK</button>
                 </div>
+
 
             </form>
             <div className="bottom"></div>

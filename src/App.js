@@ -33,6 +33,8 @@ function App() {
     
   const [show2,setShow2] = useState(false);
 
+  const [quantityChange,setQuantityChange] = useState(false);
+
 
 
 
@@ -41,7 +43,7 @@ function App() {
   return (
     <GlobalStyle>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/Frigider" exact>
       <Form
         productName={productName}
         setProductName={setProductName}
@@ -83,6 +85,9 @@ function App() {
           show2={show2}
           setShow={setShow}
           setShow2={setShow2}
+          quantityChange={quantityChange}
+          setQuantityChange={setQuantityChange}
+
    
 
         />

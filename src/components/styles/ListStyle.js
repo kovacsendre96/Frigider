@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 export const ListStyle = styled.div`
 width:100%;
+height:100vh;
 display:flex;
-justify-content:space-around;
+justify-content:center;
+align-items:center;
 
 
 .inside{
@@ -13,48 +15,51 @@ justify-content:space-around;
     width:30%;
     height:700px;
     border:3px solid black;
-    overflow-y:scroll;
     display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
-    overflow-y:scroll;
-   
-
-}
-
-.datas{
-    width:25%;
-    height:600px;
+    flex-direction:column;
 
 
-    .top{
-        width:100%;
-        height:15%;
-        background:#40877C;
-        border-radius:15px 15px 0 0;
+    .fresh-food{
+        height:50%;
+            overflow-y:scroll;
+       
+    
+        h2{
+            text-align:center;
+            border-bottom:1px solid blue;
+        }
+        
+        .fresh-food-items{
+         
+      display:flex;
+      flex-wrap:wrap;
+        
+        }
+        
     }
 
-    .content{
-        height:70%;
-        width:100%;
-        display:flex;
-        flex-direction:column;
-        justify-content:space-around;
-        align-items:center;
-        background:#F3F4E5;
+    .middle-fresh-food{
+        height:30%;
         overflow-y:scroll;
     }
 
 
-    
-    .bottom{
-        width:100%;
-        height:15%;
-        background:#DCDDCF;
-        border-radius:0 0 15px 15px ;
+    .expired-food{
+        height:20%;
+        overflow-y:scroll;
+        flex-wrap:wrap;
+
+        h2{
+            text-align:center;
+            color:red;
+            border-bottom:1px solid red;
+        }
     }
-    
+   
+
 }
+
+
 
 
 

@@ -48,11 +48,14 @@ form{
 .input-wrapper{
     width:80%;
     border-bottom:2px solid #C8C9BC;
-    justify-content:center;
+    justify-content:flex-start;
     display:flex;
     
 }
-button{
+.button-wrapper{
+    border-bottom:2px solid #C8C9BC;
+    text-align:center;
+    width:80%;
     
 }
 

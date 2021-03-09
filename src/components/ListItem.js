@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2, filterItem, setList, filteredItem }) => {
-
+const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2, filterItem, setList, filteredItem, quantityChange, setQuantityChange }) => {
+    const [changeInput,setChangeInput] = useState();
 
     const handleClose = () => setShow(false);
 
@@ -15,12 +15,12 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
 
     const handleClose2 = () => setShow2(false);
 
-    /*   const remove = () => {
-          setList(list.filter((f) => f.id !== listItem.id))
-          setShow2(false);
-          setShow(false);
-      } */
 
+    
+    const ChangeHandler = () => setQuantityChange(true);
+
+
+    const CloseChangeHandler = () => setQuantityChange(false);
 
 
 
@@ -32,9 +32,10 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
 
         setShow(true);
 
+    }
 
-
-
+    const ChangeInputHandler=(e)=>{
+        setChangeInput(e.target.value);
     }
 
 
@@ -66,15 +67,23 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleClose}>
                                     Vissza
-                       </Button>
+                                </Button>
+
+                                <Button variant="primary" onClick={ChangeHandler}>
+                                    Mennyiség módosítása
+                                </Button>
+                                
+                              
 
                                 <Button variant="danger" onClick={HandleShow2}>
                                     Töröl
-                       </Button>
+                                </Button>
 
 
 
                             </Modal.Footer>
+
+
                         </Modal>
 
                         <Modal
@@ -93,13 +102,58 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                 <Button variant="secondary" onClick={handleClose2}>
                                     Vissza
                    </Button>
-                                <Button onClick={ () => {
+                                <Button onClick={() => {
                                     setList(list.filter((f) => f.id !== filterItem.id))
                                     setShow2(false);
                                     setShow(false);
                                 }} variant="primary">Igen</Button>
                             </Modal.Footer>
                         </Modal>
+
+
+
+                        <Modal
+                            show={quantityChange}
+                            onHide={CloseChangeHandler}
+                            backdrop="static"
+                            keyboard={false}
+                        >
+                            <Modal.Header closeButton>
+                                <Modal.Title>Mennyiség módosítása</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                Írja be a módosítani kívánt mennyiséget !
+                                <input onChange={ChangeInputHandler} type='number'></input>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={CloseChangeHandler}>
+                                    Vissza
+                   </Button>
+                                <Button onClick={() => {
+                             
+                           
+                           
+                                    filterItem.quantity=parseInt(filterItem.quantity)+parseInt(changeInput);
+                                    setQuantityChange(false);
+                                   
+                                }} variant="success">Hozzáad</Button>
+
+                                <Button onClick={() => {
+                                     filterItem.quantity=parseInt(filterItem.quantity)-parseInt(changeInput);
+                                     if(filterItem.quantity===0){
+                                         
+                                       HandleShow2()
+                                     }
+                                     setQuantityChange(false);
+
+                                }} variant="warning">Kivon</Button>
+                            </Modal.Footer>
+                        </Modal>
+
+
+
+         
+
                     </>
                 ))
             }
