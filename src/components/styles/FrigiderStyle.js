@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import frigider2 from '../styles/frigider2.jpg';
-import frigiderOpen from '../styles/frigider-open.jpg';
+import frigiderClose from '../styles/frigider-close.png';
+import frigiderOpen from '../styles/frigider-open.png';
 
 export const FrigiderStyle = styled.div`
 width:40%;
@@ -12,7 +12,7 @@ display:flex;
 .frigider{
     width:100%;
 height:600px;
-    background:url(${frigider2});
+    background:url(${frigiderClose});
 background-size:contain;
 background-repeat:no-repeat;
 cursor:pointer;

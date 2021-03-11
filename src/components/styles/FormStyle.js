@@ -34,6 +34,11 @@ form{
     height:15%;
     background:#40877C;
     border-radius:15px 15px 0 0;
+    color:white;
+    font-size:2rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     
 }
 
@@ -47,15 +52,36 @@ form{
 
 .input-wrapper{
     width:80%;
-    border-bottom:2px solid #C8C9BC;
+
     justify-content:flex-start;
     display:flex;
+
+    input{   
+        margin:0 20px;
+        background:none;
+        border:none;
+        border-bottom:2px solid #C8C9BC;
+        width:100%;
+        &:focus{
+            outline:none;
+        }
+       
+    }
+    select{
+        background:none;
+        border: 2px solid #C8C9BC
+    }
+
+ 
     
 }
 .button-wrapper{
-    border-bottom:2px solid #C8C9BC;
     text-align:center;
     width:80%;
+
+    button{
+       background:#C8C9BC
+    }
     
 }
 

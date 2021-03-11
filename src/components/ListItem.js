@@ -139,12 +139,14 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                 }} variant="success">Hozzáad</Button>
 
                                 <Button onClick={() => {
-                                     filterItem.quantity=parseInt(filterItem.quantity)-parseInt(changeInput);
-                                     if(filterItem.quantity===0){
-                                         
-                                       HandleShow2()
-                                     }
-                                     setQuantityChange(false);
+                                    filterItem.quantity=parseInt(filterItem.quantity)-parseInt(changeInput);
+                                    if(filterItem.quantity<=0){
+                                        
+                                        HandleShow2()
+                                        filterItem.quantity=parseInt(filterItem.quantity)+parseInt(changeInput);
+                                    }
+                                    
+                                    setQuantityChange(false);
 
                                 }} variant="warning">Kivon</Button>
                             </Modal.Footer>

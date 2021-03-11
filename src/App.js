@@ -10,9 +10,12 @@ import { Switch, Route } from 'react-router-dom';
 function App() {
 
 
+
+
+
   const [result, setResult] = useState();
 
-  const [productName, setProductName] = useState('');
+  const [productName, setProductName] = useState();
 
   const [list, setList] = useState([]);
 

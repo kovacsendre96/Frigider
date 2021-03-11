@@ -63,13 +63,27 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
     const submitHandler = (e) => {
         e.preventDefault();
 
-        setList([...list, { product: productName, resultNumber: result, id: uuidv4(), date: input, endDate: anotherInput, since: since, unit: unit, quantity: quantity }]);
-        setProductName('');
-        setPut(true);
-        e.target.reset();
-        setTimeout(function () { setPut(false); }, 300);
+        if(input && anotherInput && unit && quantity && productName !== undefined){
 
-    
+            setList([...list, { product: productName, resultNumber: result, id: uuidv4(), date: input, endDate: anotherInput, since: since, unit: unit, quantity: quantity }]);
+            setProductName();
+            setUnit();
+            setInput();
+            setAnotherInput();
+            setQuantity();
+            setPut(true);
+            e.target.reset();
+            setTimeout(function () { setPut(false); }, 300);
+        }
+
+      
+
+        else{
+            alert('Kérem töltse ki az egész űrlapot!')
+        }
+
+
+
 
 
     }
@@ -83,35 +97,38 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
 
     return (
         <ListDesign>
-            <div className="top"></div>
+            <div className="top">Címke</div>
             <form onSubmit={submitHandler} id="datas">
                 <div className="input-wrapper">
-                    Megnevezés
-                    <input value={productName} onChange={FoodNameHandler}></input>
+                    <label for='product-name'>Megnevezés</label>
+                    <input id="product-name" value={productName} onChange={FoodNameHandler}></input>
                 </div>
 
                 <div className="input-wrapper">
-                    <label placeholder="Mennyiség" for='quantity'>Mennyiség</label>
+                    <label for='quantity'>Mennyiség</label>
                     <input id="quantity" onChange={QuantityHandler} type="number"></input>
                     <select onChange={UnitHandler} name="quantity" id="quantity" form="datas">
 
                         <option hidden selected>Választ</option>
                         <option value="kg">kg</option>
                         <option value="dkg">dkg</option>
+                        <option value="g">g</option>
                         <option value="l">l</option>
                         <option value="dl">dl</option>
+                        <option value="cl">cl</option>
+                        <option value="db">db</option>
                     </select>
 
                 </div>
 
                 <div className="input-wrapper">
-                    Berakási dátum
-                    <input onChange={InputHandler} type="date"></input>
+                    <label for='put-in-date'>Berakás dátuma</label>
+                    <input id="put-in-date" onChange={InputHandler} type="date"></input>
                 </div>
 
                 <div className="input-wrapper">
-                    Szavatossági idő
-                    <input onChange={anotherInputHandler} type="date"></input>
+                <label for='take-out-date'>Szavatossági idő</label>
+                    <input id="take-out-date" onChange={anotherInputHandler} type="date"></input>
                 </div>
 
 
