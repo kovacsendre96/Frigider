@@ -59,11 +59,11 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                 <Modal.Title> <h3>{filterItem.product}</h3></Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <p style={{ color: 'gray' }}> még {filterItem.resultNumber} érvényes a szavatossági idő</p>
-                                <p>Berakási dátum:{filterItem.date} ( {filterItem.since === 0 ? 'ma' : filterItem.since + ' napja'} )</p>
+                                <p style={{ color: 'gray' }}> még {filterItem.resultNumber} napig érvényes a szavatossági idő</p>
+                                <p>Berakási dátum: {filterItem.date} ( {filterItem.since === 0 ? 'ma' : filterItem.since + ' napja'} )</p>
 
                                 <p style={{ color: "red" }}>Szavatossági idő: {filterItem.endDate}</p>
-                                <p>Mennyiség:{filterItem.quantity} {filterItem.unit}</p>
+                                <p>Mennyiség: {filterItem.quantity} {filterItem.unit}</p>
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleClose}>
