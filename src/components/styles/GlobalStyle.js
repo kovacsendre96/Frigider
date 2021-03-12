@@ -6,6 +6,8 @@ display:flex;
 justify-content:space-around;
 align-items:center;
 height:100vh;
-
 font-family: 'Caveat', cursive;
+@media(max-width:768px){
+
+}
 `;

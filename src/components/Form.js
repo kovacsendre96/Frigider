@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ListDesign } from './styles/FormStyle';
 
-
+import { Alert } from 'react-bootstrap';
 
 const Form = ({ productName, setProductName, input, setInput, anotherInput, setAnotherInput, list, setList, setResult, result, quantity, setQuantity, unit, setUnit, put, setPut }) => {
 
-
-
+    const [showAlert, setShowAlert] = useState(false)
+  
     //INPUT HANDLERS
 
     const anotherInputHandler = (e) => {
@@ -63,7 +63,7 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
     const submitHandler = (e) => {
         e.preventDefault();
 
-        if(input && anotherInput && unit && quantity && productName !== undefined){
+        if (input && anotherInput && unit && quantity > 0 && productName !== undefined) {
 
             setList([...list, { product: productName, resultNumber: result, id: uuidv4(), date: input, endDate: anotherInput, since: since, unit: unit, quantity: quantity }]);
             setProductName();
@@ -74,16 +74,18 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
             setPut(true);
             e.target.reset();
             setTimeout(function () { setPut(false); }, 300);
+
+
+
+
+           
+
+
         }
 
-      
-
-        else{
-            alert('Kérem töltse ki az egész űrlapot!')
+        else {
+            setShowAlert(true)
         }
-
-
-
 
 
     }
@@ -97,48 +99,69 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
 
     return (
         <ListDesign>
-            <div className="top">Címke</div>
-            <form onSubmit={submitHandler} id="datas">
-                <div className="input-wrapper">
-                    <label for='product-name'>Megnevezés</label>
-                    <input id="product-name" value={productName} onChange={FoodNameHandler}></input>
+
+
+            <div className='label'>
+                <div className="top">Címke</div>
+                <form onSubmit={submitHandler} id="datas">
+                    <div className="input-wrapper">
+                        <label for='product-name'>Megnevezés</label>
+                        <input id="product-name" value={productName} onChange={FoodNameHandler}></input>
+                    </div>
+
+                    <div className="input-wrapper">
+                        <label for='quantity'>Mennyiség</label>
+                        <input id="quantity" onChange={QuantityHandler} value={quantity} type="number"></input>
+                        <select onChange={UnitHandler} name="quantity" id="quantity" form="datas">
+
+                            <option hidden selected>Választ</option>
+                            <option value="kg">kg</option>
+                            <option value="dkg">dkg</option>
+                            <option value="g">g</option>
+                            <option value="l">l</option>
+                            <option value="dl">dl</option>
+                            <option value="cl">cl</option>
+                            <option value="db">db</option>
+                        </select>
+
+                    </div>
+
+                    <div className="input-wrapper">
+                        <label for='put-in-date'>Berakás dátuma</label>
+                        <input id="put-in-date" onChange={InputHandler} value={input} type="date"></input>
+                    </div>
+
+                    <div className="input-wrapper">
+                        <label for='take-out-date'>Szavatossági idő</label>
+                        <input id="take-out-date" onChange={anotherInputHandler} value={anotherInput} type="date"></input>
+                    </div>
+
+
+                    <div className="button-wrapper">
+                        <button >OK</button>
+                    </div>
+
+
+                </form>
+                <div className="bottom">
+                    <div className='alert'>
+
+                        {showAlert ?
+                            <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
+                                <Alert.Heading>Hiányos, vagy hibás mezők</Alert.Heading>
+                                <p> <strong>Győződjön meg az alábbikról!</strong></p>
+                                <ul>
+                                    <li>Minden mező kitöltése megtörtént</li>
+                                    <li>A mennyiség pozitív szám</li>
+                                </ul>
+                            </Alert>
+                            : ''
+
+                        }
+
+                    </div>
                 </div>
-
-                <div className="input-wrapper">
-                    <label for='quantity'>Mennyiség</label>
-                    <input id="quantity" onChange={QuantityHandler} type="number"></input>
-                    <select onChange={UnitHandler} name="quantity" id="quantity" form="datas">
-
-                        <option hidden selected>Választ</option>
-                        <option value="kg">kg</option>
-                        <option value="dkg">dkg</option>
-                        <option value="g">g</option>
-                        <option value="l">l</option>
-                        <option value="dl">dl</option>
-                        <option value="cl">cl</option>
-                        <option value="db">db</option>
-                    </select>
-
-                </div>
-
-                <div className="input-wrapper">
-                    <label for='put-in-date'>Berakás dátuma</label>
-                    <input id="put-in-date" onChange={InputHandler} type="date"></input>
-                </div>
-
-                <div className="input-wrapper">
-                <label for='take-out-date'>Szavatossági idő</label>
-                    <input id="take-out-date" onChange={anotherInputHandler} type="date"></input>
-                </div>
-
-
-                <div className="button-wrapper">
-                    <button >OK</button>
-                </div>
-
-
-            </form>
-            <div className="bottom"></div>
+            </div>
         </ListDesign>
 
     );

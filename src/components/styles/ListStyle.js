@@ -9,26 +9,33 @@ justify-content:center;
 align-items:center;
 
 
+
 .link{
     align-self:flex-start;
    color:green;
    font-size:2rem;
    text-align:center;
- 
+  
+   @media(max-width:768px){
+    font-size:1rem;
+    }
 
 img{
     height:120px;
 
-    
+    @media(max-width:768px){
+        height:50px;
+    }
+
     }
 }
 
 
 .inside{
 
-
-    width:30%;
-    height:700px;
+   
+    width:70%;
+    height:560px;
     display:flex;
     flex-direction:column;
     background:#D5D5D7;
@@ -80,7 +87,10 @@ img{
        
     }
  
-
+    @media(max-width:768px){
+    width:80%;
+    margin-left:10px;
+    }
 }
 
 
@@ -93,14 +103,17 @@ img{
 
 export const ListItemStyle = styled.div`
  width:60px;
- height:40px;
+ height:80px;
  margin:15px;
  border:1px solid black;
  background:white;
  border:none;
+ border-radius:5px;
  cursor: pointer;
  transition:0.3s;
 text-align:center;
+display:flex;
+flex-direction:column;
 
 
  
@@ -109,4 +122,33 @@ text-align:center;
      box-shadow:2px 2px 5px 0px rgba(0,0,0,0.75);
  }
  
+
+ .middle{
+    height:70%;
+    width:100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+   
+   
+
+}
+
+.top{
+    width:100%;
+    height:15%;
+    background:#40877C;
+    border-radius:5px 5px 0 0;
+   
+    
+}
+
+
+.bottom{
+    width:100%;
+    height:15%;
+    background:#DCDDCF;
+    border-radius:0 0 5px 5px ;
+}
 `;

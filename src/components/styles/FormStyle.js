@@ -9,13 +9,39 @@ import styled from 'styled-components';
 
 
 export const ListDesign = styled.div`
-width:25%;
-height:500px;
-background:#F3F4E5;
-box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.75);
+
+width:40%;
+
+@media(max-width:1024px){
+    width:50%;
+}
+@media(max-width:768px){
+    width:70%;
+    
+}
+@media(max-width:425px){
+    font-size:0.7rem;
+    
+}
 
 
 
+
+.label{
+    width:70%;
+    height:500px;
+    background:#F3F4E5;
+    box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.75);
+    border-radius:15px;
+
+    @media(max-width:768px){
+    width:100%;
+}
+}
+
+.alert{
+  
+}
 
 form{
     height:70%;
@@ -65,6 +91,10 @@ form{
         &:focus{
             outline:none;
         }
+
+        @media(max-width:768px){
+            margin:0 5px;
+}
        
     }
     select{

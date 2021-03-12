@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ListItemStyle } from './styles/ListStyle';
 import { Button, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import label from './styles/label.png';
 
 
 
@@ -44,9 +45,9 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
 
         <>
             <ListItemStyle variant="primary" onClick={showDatas}>
-                <p>{listItem.product}</p>
-
-
+                <div className="top"></div>
+                <div className="middle"><p>{listItem.product}</p></div>
+                <div className="bottom"></div>
             </ListItemStyle>
 
             {

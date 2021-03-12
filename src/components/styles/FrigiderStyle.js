@@ -9,6 +9,14 @@ height:600px;
 display:flex;
 
 
+@media(max-width:768px){
+    width:30%;
+    height:300px;
+    align-self:flex-start;
+  
+}
+
+
 .frigider{
     width:100%;
 height:600px;
