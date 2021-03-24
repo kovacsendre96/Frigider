@@ -30,6 +30,35 @@ img{
     }
 }
 
+.side-bar{
+    border: 1px solid black;
+    height:400px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    .capacity-wrapper{
+        height:40%;
+        .capacity-input-wrapper{
+            display:flex;
+            justify-content:space-around;
+            input{
+                width:55px;
+                height:30px;
+                }
+        }
+
+    }
+
+    .filter{
+        height:60%;
+    }
+
+
+}
+
 
 .inside{
 
@@ -43,7 +72,7 @@ img{
 
 
     .fresh-food{
-        height:50%;
+        height:40%;
            
        
     
@@ -63,7 +92,7 @@ img{
 
 
     .expired-food{
-        height:20%;
+        height:30%;
       overflow:hidden;
      
         

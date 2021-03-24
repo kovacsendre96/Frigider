@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { ListItemStyle } from './styles/ListStyle';
 import { Button, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import label from './styles/label.png';
 
 
 
 
-const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2, filterItem, setList, filteredItem, quantityChange, setQuantityChange }) => {
-    const [changeInput,setChangeInput] = useState();
+
+
+const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2, filterItem, setList, filteredItem, quantityChange, setQuantityChange, category }) => {
+    const [changeInput, setChangeInput] = useState();
 
     const handleClose = () => setShow(false);
 
@@ -17,7 +18,7 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
     const handleClose2 = () => setShow2(false);
 
 
-    
+
     const ChangeHandler = () => setQuantityChange(true);
 
 
@@ -35,7 +36,7 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
 
     }
 
-    const ChangeInputHandler=(e)=>{
+    const ChangeInputHandler = (e) => {
         setChangeInput(e.target.value);
     }
 
@@ -44,14 +45,18 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
     return (
 
         <>
+     
+
             <ListItemStyle variant="primary" onClick={showDatas}>
                 <div className="top"></div>
                 <div className="middle"><p>{listItem.product}</p></div>
                 <div className="bottom"></div>
             </ListItemStyle>
+ 
 
             {
                 filteredItem.map((filterItem) => (
+                    
                     <>
 
                         <Modal show={show} onHide={handleClose}>
@@ -59,11 +64,12 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                 <Modal.Title> <h3>{filterItem.product}</h3></Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <p style={{ color: 'gray' }}> még {filterItem.resultNumber} napig érvényes a szavatossági idő</p>
+                                <p style={{ color: 'gray' }}> {filterItem.resultNumber>=0?'még '+ filterItem.resultNumber +' napig érvényes a szavatossági idő':'A termék szavatossági ideje '+filterItem.resultNumber*-1+' napja lejárt.'} </p>
                                 <p>Berakási dátum: {filterItem.date} ( {filterItem.since === 0 ? 'ma' : filterItem.since + ' napja'} )</p>
 
                                 <p style={{ color: "red" }}>Szavatossági idő: {filterItem.endDate}</p>
                                 <p>Mennyiség: {filterItem.quantity} {filterItem.unit}</p>
+                                <p>Kategória: {filterItem.category}</p>
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleClose}>
@@ -73,8 +79,8 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                 <Button variant="primary" onClick={ChangeHandler}>
                                     Mennyiség módosítása
                                 </Button>
-                                
-                              
+
+
 
                                 <Button variant="danger" onClick={HandleShow2}>
                                     Töröl
@@ -131,22 +137,22 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                     Vissza
                    </Button>
                                 <Button onClick={() => {
-                             
-                           
-                           
-                                    filterItem.quantity=parseInt(filterItem.quantity)+parseInt(changeInput);
+
+
+
+                                    filterItem.quantity = parseInt(filterItem.quantity) + parseInt(changeInput);
                                     setQuantityChange(false);
-                                   
+
                                 }} variant="success">Hozzáad</Button>
 
                                 <Button onClick={() => {
-                                    filterItem.quantity=parseInt(filterItem.quantity)-parseInt(changeInput);
-                                    if(filterItem.quantity<=0){
-                                        
+                                    filterItem.quantity = parseInt(filterItem.quantity) - parseInt(changeInput);
+                                    if (filterItem.quantity <= 0) {
+
                                         HandleShow2()
-                                        filterItem.quantity=parseInt(filterItem.quantity)+parseInt(changeInput);
+                                        filterItem.quantity = parseInt(filterItem.quantity) + parseInt(changeInput);
                                     }
-                                    
+
                                     setQuantityChange(false);
 
                                 }} variant="warning">Kivon</Button>
@@ -155,7 +161,7 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
 
 
 
-         
+
 
                     </>
                 ))

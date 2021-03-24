@@ -82,6 +82,7 @@ form{
     justify-content:flex-start;
     display:flex;
 
+
     input{   
         margin:0 20px;
         background:none;
@@ -91,12 +92,23 @@ form{
         &:focus{
             outline:none;
         }
+      
 
         @media(max-width:768px){
             margin:0 5px;
 }
        
     }
+
+    i{
+        color:red;
+        font-weight:bold;
+        display:none;
+    }
+    .warning{
+            display:block;
+        }
+
     select{
         background:none;
         border: 2px solid #C8C9BC
