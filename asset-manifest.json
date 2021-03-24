@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.js": "/Frigider/static/js/main.a8aa93de.chunk.js",
-    "main.js.map": "/Frigider/static/js/main.a8aa93de.chunk.js.map",
-    "runtime-main.js": "/Frigider/static/js/runtime-main.81960d7a.js",
-    "runtime-main.js.map": "/Frigider/static/js/runtime-main.81960d7a.js.map",
+    "main.js": "/Frigider/static/js/main.1928d551.chunk.js",
+    "main.js.map": "/Frigider/static/js/main.1928d551.chunk.js.map",
+    "runtime-main.js": "/Frigider/static/js/runtime-main.1d164cd4.js",
+    "runtime-main.js.map": "/Frigider/static/js/runtime-main.1d164cd4.js.map",
     "static/css/2.150d169a.chunk.css": "/Frigider/static/css/2.150d169a.chunk.css",
-    "static/js/2.912ae93a.chunk.js": "/Frigider/static/js/2.912ae93a.chunk.js",
-    "static/js/2.912ae93a.chunk.js.map": "/Frigider/static/js/2.912ae93a.chunk.js.map",
-    "static/js/3.f273b216.chunk.js": "/Frigider/static/js/3.f273b216.chunk.js",
-    "static/js/3.f273b216.chunk.js.map": "/Frigider/static/js/3.f273b216.chunk.js.map",
+    "static/js/2.7b4b134d.chunk.js": "/Frigider/static/js/2.7b4b134d.chunk.js",
+    "static/js/2.7b4b134d.chunk.js.map": "/Frigider/static/js/2.7b4b134d.chunk.js.map",
+    "static/js/3.53a6b7bf.chunk.js": "/Frigider/static/js/3.53a6b7bf.chunk.js",
+    "static/js/3.53a6b7bf.chunk.js.map": "/Frigider/static/js/3.53a6b7bf.chunk.js.map",
     "index.html": "/Frigider/index.html",
     "static/css/2.150d169a.chunk.css.map": "/Frigider/static/css/2.150d169a.chunk.css.map",
-    "static/js/2.912ae93a.chunk.js.LICENSE.txt": "/Frigider/static/js/2.912ae93a.chunk.js.LICENSE.txt",
+    "static/js/2.7b4b134d.chunk.js.LICENSE.txt": "/Frigider/static/js/2.7b4b134d.chunk.js.LICENSE.txt",
     "static/media/frigider-open.1ab59783.png": "/Frigider/static/media/frigider-open.1ab59783.png",
-    "static/media/long-arrow-alt-left-solid.8f09595c.svg": "/Frigider/static/media/long-arrow-alt-left-solid.8f09595c.svg"
+    "static/media/long-arrow-alt-left-solid.svg": "/Frigider/static/media/long-arrow-alt-left-solid.8f09595c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.81960d7a.js",
+    "static/js/runtime-main.1d164cd4.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.912ae93a.chunk.js",
-    "static/js/main.a8aa93de.chunk.js"
+    "static/js/2.7b4b134d.chunk.js",
+    "static/js/main.1928d551.chunk.js"
   ]
 }
