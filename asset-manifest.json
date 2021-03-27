@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/Frigider/static/js/main.cdf7b921.chunk.js",
-    "main.js.map": "/Frigider/static/js/main.cdf7b921.chunk.js.map",
+    "main.js": "/Frigider/static/js/main.9c37fe64.chunk.js",
+    "main.js.map": "/Frigider/static/js/main.9c37fe64.chunk.js.map",
     "runtime-main.js": "/Frigider/static/js/runtime-main.9e57257e.js",
     "runtime-main.js.map": "/Frigider/static/js/runtime-main.9e57257e.js.map",
     "static/css/2.150d169a.chunk.css": "/Frigider/static/css/2.150d169a.chunk.css",
-    "static/js/2.7d3c4130.chunk.js": "/Frigider/static/js/2.7d3c4130.chunk.js",
-    "static/js/2.7d3c4130.chunk.js.map": "/Frigider/static/js/2.7d3c4130.chunk.js.map",
+    "static/js/2.7062937d.chunk.js": "/Frigider/static/js/2.7062937d.chunk.js",
+    "static/js/2.7062937d.chunk.js.map": "/Frigider/static/js/2.7062937d.chunk.js.map",
     "static/js/3.7f4b5d08.chunk.js": "/Frigider/static/js/3.7f4b5d08.chunk.js",
     "static/js/3.7f4b5d08.chunk.js.map": "/Frigider/static/js/3.7f4b5d08.chunk.js.map",
     "index.html": "/Frigider/index.html",
     "static/css/2.150d169a.chunk.css.map": "/Frigider/static/css/2.150d169a.chunk.css.map",
-    "static/js/2.7d3c4130.chunk.js.LICENSE.txt": "/Frigider/static/js/2.7d3c4130.chunk.js.LICENSE.txt",
+    "static/js/2.7062937d.chunk.js.LICENSE.txt": "/Frigider/static/js/2.7062937d.chunk.js.LICENSE.txt",
     "static/media/frigider-open.1ab59783.png": "/Frigider/static/media/frigider-open.1ab59783.png"
   },
   "entrypoints": [
     "static/js/runtime-main.9e57257e.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.7d3c4130.chunk.js",
-    "static/js/main.cdf7b921.chunk.js"
+    "static/js/2.7062937d.chunk.js",
+    "static/js/main.9c37fe64.chunk.js"
   ]
 }
