@@ -7,15 +7,6 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
 
     const [showAlert, setShowAlert] = useState(false);
 
-    const [warning, setWarning] = useState({
-        'input': false,
-        'anotherInput': false,
-        'quantity': false,
-        'unit': false,
-        'category': false,
-        'productName': false,
-
-    });
 
     //INPUT HANDLERS
 
@@ -67,45 +58,8 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
 
     // VALIDATION FUNCTION
 
-/*     function validation() {
-        if (input === undefined) {
-            setWarning({
-                input: true
-            })
 
-        };
 
-        if (anotherInput === undefined) {
-            setWarning({
-                'anotherInput': true
-            })
-
-        };
-        if (quantity === undefined) {
-            setWarning({
-                'quantity': true
-            })
-
-        };
-
-        if (productName === undefined) {
-            setWarning({
-                'productName': true
-            })
-        };
-
-        if (unit === undefined) {
-            setWarning({
-                'unit': true
-            })
-        };
-        if (category === undefined) {
-            setWarning({
-                ...warning, category: true
-            })
-        };
-
-    }; */
 
 
 
@@ -117,13 +71,9 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
     const submitHandler = (e) => {
         e.preventDefault();
 
-      /*   validation(); */
 
 
-
-
-
-        if (input && anotherInput && unit && quantity > 0 && productName !== undefined) {
+        if (input && anotherInput && unit && quantity > 0 && productName && category !== undefined) {
 
             setList([...list, { product: productName, resultNumber: result, id: uuidv4(), date: input, endDate: anotherInput, since: since, unit: unit, quantity: quantity, category: category }]);
             setProductName();
@@ -132,7 +82,8 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
             setAnotherInput();
             setQuantity();
             setPut(true);
-            e.target.reset();
+
+
             setTimeout(function () { setPut(false); }, 300);
 
 
@@ -166,14 +117,14 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
                 <form onSubmit={submitHandler} id="datas">
                     <div className="input-wrapper">
                         <label for='product-name'>Megnevezés</label>
-                        <input id="product-name" value={productName} onChange={FoodNameHandler}></input>
-                        <i className={warning.productName ? `warning` : ''}>!</i>
+                        <input type="text" id="product-name" value={productName} onChange={FoodNameHandler}></input>
+
                     </div>
 
                     <div className="input-wrapper">
                         <label for='quantity'>Mennyiség</label>
                         <input id="quantity" onChange={QuantityHandler} value={quantity} type="number"></input>
-                        <i className={warning.quantity ? `warning` : ''}>!</i>
+
                         <select onChange={UnitHandler} name="quantity" id="quantity" form="datas">
 
                             <option hidden selected>Választ</option>
@@ -185,7 +136,7 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
                             <option value="cl">cl</option>
                             <option value="db">db</option>
                         </select>
-                        <i className={warning.unit ? `warning` : ''}>!</i>
+
                     </div>
 
 
@@ -194,26 +145,28 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
 
                         <select onChange={CategoryHandler}>
                             <option hidden selected>Választ</option>
-                            <option value="Húsfélék">Húsfélék</option>
-                            <option value="Tejtermék">Tejtermékek</option>
-                            <option value="Gyümölcsök és zöldségek ">Gyümölcsök és zöldségek</option>
-                            <option value="Gabona félék">Gabona félék</option>
-                            <option value="Kész étel">Kész ételek</option>
+                            <option selected>Összes</option>
+                            <option value="drumstick-bite">&#xf6d7; Húsfélék</option>
+                            <option value="fas fa-fish">&#xf578;Halfélék</option>
+                            <option value="fas fa-cheese">&#xf7ef;Tejtermékek</option>
+                            <option value="fas fa-carrot">&#xf787;Gyümölcsök és zöldségek</option>
+                            <option value="fas fa-bread-slice">&#xf7ec;Gabonafélék</option>
+                            <option value="fas fa-utensils">&#xf2e7;Kész ételek</option>
                         </select>
-                        <i className={warning.category ? `warning` : ''}>!</i>
+
                     </div>
 
 
                     <div className="input-wrapper">
                         <label for='put-in-date'>Berakás dátuma</label>
                         <input id="put-in-date" onChange={InputHandler} value={input} type="date"></input>
-                        <i className={warning.input ? `warning` : ''}>!</i>
+
                     </div>
 
                     <div className="input-wrapper">
                         <label for='take-out-date'>Szavatossági idő</label>
                         <input id="take-out-date" onChange={anotherInputHandler} value={anotherInput} type="date"></input>
-                        <i className={warning.anotherInput ? `warning` : ''}>!</i>
+
                     </div>
 
 

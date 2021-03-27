@@ -39,9 +39,7 @@ width:40%;
 }
 }
 
-.alert{
-  
-}
+
 
 form{
     height:70%;

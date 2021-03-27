@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { ListItemStyle } from './styles/ListStyle';
 import { Button, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faDrumstickBite,faBreadSlice,faFish,faCheese,faUtensils,faCarrot,} from '@fortawesome/free-solid-svg-icons';
 
 
 
 
 
-
-const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2, filterItem, setList, filteredItem, quantityChange, setQuantityChange, category }) => {
+const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2,setList, filteredItem, quantityChange, setQuantityChange, date }) => {
     const [changeInput, setChangeInput] = useState();
 
     const handleClose = () => setShow(false);
@@ -40,6 +41,20 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
         setChangeInput(e.target.value);
     }
 
+    let icon;
+    {switch(listItem.category){
+        case 'drumstick-bite' :icon= faDrumstickBite
+        break; 
+        case 'fas fa-fish':icon=  faFish 
+        break;
+        case 'fas fa-carrot':icon=  faCarrot 
+        break;
+        case 'fas fa-bread-slice':icon=  faBreadSlice 
+        break;
+        case 'fas fa-utensils':icon=  faUtensils
+        break;
+        }}
+
 
 
     return (
@@ -48,11 +63,14 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
      
 
             <ListItemStyle variant="primary" onClick={showDatas}>
-                <div className="top"></div>
-                <div className="middle"><p>{listItem.product}</p></div>
+                <div className="top">
+                    <FontAwesomeIcon className='icon' icon={icon} />
+                </div>
+                <div className="middle"><p>{listItem.product}</p><p>{listItem.quantity} {listItem.unit}</p>
+                </div>
                 <div className="bottom"></div>
             </ListItemStyle>
- 
+
 
             {
                 filteredItem.map((filterItem) => (
@@ -64,12 +82,12 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                 <Modal.Title> <h3>{filterItem.product}</h3></Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <p style={{ color: 'gray' }}> {filterItem.resultNumber>=0?'még '+ filterItem.resultNumber +' napig érvényes a szavatossági idő':'A termék szavatossági ideje '+filterItem.resultNumber*-1+' napja lejárt.'} </p>
-                                <p>Berakási dátum: {filterItem.date} ( {filterItem.since === 0 ? 'ma' : filterItem.since + ' napja'} )</p>
+                                <p style={{ color: 'gray' }}> {filterItem.resultNumber>=0?'még '+ ((new Date(filterItem.endDate).getTime() - new Date(date.today).getTime()) / date.oneDay) +' napig érvényes a szavatossági idő':'A termék szavatossági ideje '+filterItem.resultNumber*-1+' napja lejárt.'} </p>
+                                <p>Berakási dátum: {filterItem.date} ( { ((new Date(date.today).getTime() - new Date(filterItem.date).getTime()) / date.oneDay) === 0 ? 'ma' :  ((new Date(date.today).getTime() - new Date(filterItem.date).getTime()) / date.oneDay) + ' napja'} )</p>
 
                                 <p style={{ color: "red" }}>Szavatossági idő: {filterItem.endDate}</p>
                                 <p>Mennyiség: {filterItem.quantity} {filterItem.unit}</p>
-                                <p>Kategória: {filterItem.category}</p>
+                                <p>Kategória: <FontAwesomeIcon className='icon' icon={icon} /></p>
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleClose}>

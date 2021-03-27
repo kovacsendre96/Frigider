@@ -10,4 +10,8 @@ font-family: 'Caveat', cursive;
 @media(max-width:768px){
 
 }
+select,option {
+    font-family: 'Lato', 'Font Awesome 5 Free';
+    font-weight: 900;
+}
 `;

@@ -40,43 +40,56 @@ function App() {
 
   const [quantityChange, setQuantityChange] = useState(false);
 
-  const [capacity, setCapacity] = useState();
-
   const [capacityInput, setCapacityInput] = useState();
 
   const [actualCapacity, setActualCapacity] = useState();
 
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   //Save to Local
   useEffect(() => {
     getLocalList();
-  
+    /* getCapacity(); */
 
   }, [])
 
   useEffect(() => {
 
     saveLocalList();
-  }, [list, quantityChange])
+  }, [list,quantityChange,/* actualCapacity */])
 
 
   const saveLocalList = () => {
 
+
     localStorage.setItem('list', JSON.stringify(list));
+   /*  localStorage.setItem('actualCapacity', JSON.stringify(actualCapacity)); */
  
 
   };
 
-  const getLocalList = () => {
+   const getLocalList = () => {
     if (localStorage.getItem('list') === null) {
       localStorage.setItem('list', JSON.stringify([]));
     }
     else {
       let listLocal = JSON.parse(localStorage.getItem('list'));
       setList(listLocal)
-     
+      
     }
-  };
+  }; 
+
+/*   const getCapacity = () =>{
+    
+    if (localStorage.getItem('actualCapacity') === null) {
+      
+      localStorage.setItem('actualCapacity', JSON.stringify());              
+    }
+    else {
+      let capacityLocal = JSON.parse(localStorage.getItem('actualCapacity'));
+      setList(capacityLocal)
+    }
+  };  */
 
 
 
@@ -133,12 +146,12 @@ function App() {
             setQuantityChange={setQuantityChange}
             category={category}
             setCategory={setCategory}
-            capacity={capacity}
             capacityInput={capacityInput}
-            setCapacity={setCapacity}
-            setCapacityInput={setCapacityInput}
+            setCapacityInput={setCapacityInput} 
             actualCapacity={actualCapacity}
             setActualCapacity={setActualCapacity}
+            toggleMenu={toggleMenu}
+            setToggleMenu={setToggleMenu}
 
 
 
