@@ -82,11 +82,7 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
             setAnotherInput();
             setQuantity();
             setPut(true);
-
-
             setTimeout(function () { setPut(false); }, 300);
-
-
 
 
 
@@ -115,18 +111,20 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
             <div className='label'>
                 <div className="top">Címke</div>
                 <form onSubmit={submitHandler} id="datas">
-                    <div className="input-wrapper">
-                        <label for='product-name'>Megnevezés</label>
-                        <input type="text" id="product-name" value={productName} onChange={FoodNameHandler}></input>
+                    <div className="product-name-wrapper">
+                        <input autoComplete="off" required className="product-name-input" type="text" id="product-name" value={productName} onChange={FoodNameHandler}></input>
+                        <label className='product-name-label' for='product-name'><span className="span">Megnevezés</span></label>
 
                     </div>
 
-                    <div className="input-wrapper">
-                        <label for='quantity'>Mennyiség</label>
-                        <input id="quantity" onChange={QuantityHandler} value={quantity} type="number"></input>
+                    <div className="input-wrapper quantity-wrapper ">
+                        <label for='quantity'><span>Mennyiség</span></label>
+                        <input required id="quantity" onChange={QuantityHandler} value={quantity} type="number"></input>
+                    </div>
 
-                        <select onChange={UnitHandler} name="quantity" id="quantity" form="datas">
-
+                    <div className="input-wrapper quantity-wrapper ">
+                    <label for='quantity'><span>Mértékegység</span></label>
+                        <select  onChange={UnitHandler} name="quantity" id="quantity" form="datas">
                             <option hidden selected>Választ</option>
                             <option value="kg">kg</option>
                             <option value="dkg">dkg</option>
@@ -134,23 +132,21 @@ const Form = ({ productName, setProductName, input, setInput, anotherInput, setA
                             <option value="l">l</option>
                             <option value="dl">dl</option>
                             <option value="cl">cl</option>
-                            <option value="db">db</option>
                         </select>
-
                     </div>
 
 
                     <div className="input-wrapper">
                         <label for='quantity'>Kategória</label>
 
-                        <select onChange={CategoryHandler}>
+                        <select  onChange={CategoryHandler}>
                             <option hidden selected>Választ</option>
-                            <option selected>Összes</option>
+                            <option selected>Választ</option>
                             <option value="drumstick-bite">&#xf6d7; Húsfélék</option>
-                            <option value="fas fa-fish">&#xf578;Halfélék</option>
-                            <option value="fas fa-cheese">&#xf7ef;Tejtermékek</option>
-                            <option value="fas fa-carrot">&#xf787;Gyümölcsök és zöldségek</option>
-                            <option value="fas fa-bread-slice">&#xf7ec;Gabonafélék</option>
+                            <option value="fas fa-fish">&#xf578; Halfélék</option>
+                            <option value="fas fa-cheese">&#xf7ef; Tejtermékek</option>
+                            <option value="fas fa-carrot">&#xf787; Gyümölcsök és zöldségek</option>
+                            <option value="fas fa-bread-slice">&#xf7ec; Gabonafélék</option>
                             <option value="fas fa-utensils">&#xf2e7;Kész ételek</option>
                         </select>
 

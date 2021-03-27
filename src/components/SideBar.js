@@ -84,6 +84,7 @@ const SideBar = ({ list, setSelectedCategory, capacityInput, setCapacityInput, a
     const ActualCapacityHandler = () => {
 
         setActualCapacity(capacityInput);
+    
 
     };
 
@@ -141,7 +142,7 @@ const SideBar = ({ list, setSelectedCategory, capacityInput, setCapacityInput, a
                 <select onChange={SelectCategoryHandler}>
                     <option selected>Összes</option>
                     <option value="drumstick-bite">&#xf6d7; Húsfélék</option>
-                    <option value="fas fa-fish">&#xf578;Halfélék</option>
+                    <option value="fas fa-fish fish">&#xf578;Halfélék</option>
                     <option value="fas fa-cheese">&#xf7ef;Tejtermékek</option>
                     <option value="fas fa-carrot">&#xf787;Gyümölcsök és zöldségek</option>
                     <option value="fas fa-bread-slice">&#xf7ec;Gabonafélék</option>

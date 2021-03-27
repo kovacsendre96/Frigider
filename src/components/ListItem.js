@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ListItemStyle } from './styles/ListStyle';
 import { Button, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,6 +10,25 @@ import {faDrumstickBite,faBreadSlice,faFish,faCheese,faUtensils,faCarrot,} from 
 
 
 const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setShow2,setList, filteredItem, quantityChange, setQuantityChange, date }) => {
+
+    let icon;
+    let szöveg;
+   {
+        switch(listItem.category){
+            case 'drumstick-bite' :icon= faDrumstickBite
+            break; 
+            case 'fas fa-fish':icon=  faFish 
+            break;
+            case 'fas fa-carrot':icon=  faCarrot 
+            break;
+            case 'fas fa-bread-slice':icon=  faBreadSlice 
+            break;
+            case 'fas fa-utensils':icon=  faUtensils
+            break;
+            case 'fas fa-cheese':icon=  faCheese
+            break;
+            }
+    }
     const [changeInput, setChangeInput] = useState();
 
     const handleClose = () => setShow(false);
@@ -41,19 +60,8 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
         setChangeInput(e.target.value);
     }
 
-    let icon;
-    {switch(listItem.category){
-        case 'drumstick-bite' :icon= faDrumstickBite
-        break; 
-        case 'fas fa-fish':icon=  faFish 
-        break;
-        case 'fas fa-carrot':icon=  faCarrot 
-        break;
-        case 'fas fa-bread-slice':icon=  faBreadSlice 
-        break;
-        case 'fas fa-utensils':icon=  faUtensils
-        break;
-        }}
+    
+    
 
 
 
@@ -76,7 +84,7 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                 filteredItem.map((filterItem) => (
                     
                     <>
-
+                   
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
                                 <Modal.Title> <h3>{filterItem.product}</h3></Modal.Title>
@@ -87,7 +95,7 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
 
                                 <p style={{ color: "red" }}>Szavatossági idő: {filterItem.endDate}</p>
                                 <p>Mennyiség: {filterItem.quantity} {filterItem.unit}</p>
-                                <p>Kategória: <FontAwesomeIcon className='icon' icon={icon} /></p>
+                              
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleClose}>
@@ -131,6 +139,7 @@ const ListItem = ({ listItem, list, setFilteredItem, show, show2, setShow, setSh
                                     setList(list.filter((f) => f.id !== filterItem.id))
                                     setShow2(false);
                                     setShow(false);
+                                    
                                 }} variant="primary">Igen</Button>
                             </Modal.Footer>
                         </Modal>

@@ -13,6 +13,10 @@ display:flex;
     width:60px;
     display:flex;
     justify-content:center;
+    @media(max-width:768px){
+        width:30px;
+        font-size:0.8rem;
+    }
    
    .hamburger{
        cursor:pointer;
@@ -41,11 +45,13 @@ display:flex;
     align-items:center;
     background:#fff;
     transition:0.5s;
+    @media(max-width:768px){
+        font-size:0.8rem;
+    }
+    @media(max-width:576px){
+        width:100%;
+    }
   
-    
- 
-    
-
 
     .sider-bar-top{
         height:10%;
@@ -116,12 +122,12 @@ display:flex;
             width:100%;
             height:20%;
             background:grey;
-            border-radius:15px;
+            border-radius:5px;
         }
         .capacity__bottom__indicator__inside{
             height:100%;
             background :red;
-            border-radius:15px  0px  0px 15px;
+            border-radius:5px  0px  0px 5px;
             display:flex;
             align-items:center;
             justify-content:center;
@@ -138,6 +144,13 @@ display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:flex-start;
+    @media(max-width:768px){
+        font-size:0.6rem;
+    }
+    @media(max-width:425px){
+        font-size:0.6rem;
+    }
+    
     
 
 }
@@ -247,8 +260,8 @@ display:flex;
         font-size:1rem;
         line-height:15px;
         white-space: nowrap; 
-            overflow: hidden;
-            text-overflow: ellipsis; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
     }
     
 

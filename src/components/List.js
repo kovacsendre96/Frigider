@@ -55,6 +55,7 @@ const List = ({ list, setList, result, input, anotherInput, filteredItem, setFil
                 setActualCapacity={setActualCapacity}
                 toggleMenu={toggleMenu}
                 setToggleMenu={setToggleMenu}
+                setList={setList}
             />
 
 

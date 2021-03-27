@@ -33,7 +33,6 @@ function App() {
 
   const [filteredItem, setFilteredItem] = useState([]);
 
-
   const [show, setShow] = useState(false);
 
   const [show2, setShow2] = useState(false);
@@ -56,7 +55,7 @@ function App() {
   useEffect(() => {
 
     saveLocalList();
-  }, [list,quantityChange,/* actualCapacity */])
+  }, [list,quantityChange])
 
 
   const saveLocalList = () => {
@@ -118,6 +117,7 @@ function App() {
             setPut={setPut}
             category={category}
             setCategory={setCategory}
+            actualCapacity={actualCapacity}
           />
           <Frigider
             put={put}
